@@ -1,0 +1,110 @@
+.header {
+  text-align: center;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+.header h1 {
+  margin-bottom: 5px;
+}
+
+.header h2 {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.navigation ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 20px;
+}
+
+.navigation li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.navigation li a:hover {
+  background-color: #4976c3;
+  color: white;
+}
+
+.main-content, .favorite-article {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.italic-text {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.featured-article {
+    background-color: #f0f8ff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.recent-posts ul {
+    padding-left: 20px;
+}
+
+.recent-posts li a, .favorite-article a {
+    text-decoration: none;
+    color: #2e95b7;
+}
+
+.recent-posts li a:hover {
+    color: #1a2e8b;
+}
+
+.recent-posts li a:focus {
+    color: #083f87;
+}
+
+.favorite-article {
+    background-color: #e6f2ff;
+    padding: 10px;
+    margin-top: 20px;
+    border-left: 4px solid #4976c3;
+    margin-bottom: 80px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #4976c3;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .header h2 {
+        font-size: 18px;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    .navigation ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

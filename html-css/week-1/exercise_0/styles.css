@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 10px;
+    padding: 0 30px;
+}
+
+.header .title {
+    font-weight: bold; 
+    color: #2763bd;
+}
+
+.header .title span {
+    font-size: 0.7em;
+    font-weight: semibold; 
+    color: #4a7de1;
+}
+
+hr {
+    border: none;
+    border-top: 3px solid #909090;
+    margin: 20px 0;
+}
+
+img {
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
