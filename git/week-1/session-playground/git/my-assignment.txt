@@ -1,1 +1,2 @@
 git exercise
+new text after first commit
