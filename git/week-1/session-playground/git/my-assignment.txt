@@ -1,0 +1,3 @@
+git exercise
+new text after first commit
+new text after PR created
