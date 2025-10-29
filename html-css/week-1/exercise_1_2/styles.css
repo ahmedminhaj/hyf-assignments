@@ -1,0 +1,75 @@
+body {
+  width: 600px;
+  margin: auto;
+}
+
+.product-table {
+  text-align: center;
+}
+
+table, th, td {
+  margin: auto;
+  border: 2px solid rgb(143, 142, 142);
+  border-collapse: collapse;
+  padding: 10px;
+} 
+
+hr {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #a2a2a2;
+}
+
+.user-form {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.user-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.user-form div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+.user-form label {
+  width: 120px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.user-form input[type="text"],
+.user-form input[type="email"],
+.user-form select,
+.user-form textarea {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.user-form input[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4a78b4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.user-form input[type="submit"]:hover {
+  background-color: #507ea8;
+}
