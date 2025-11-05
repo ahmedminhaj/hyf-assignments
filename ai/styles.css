@@ -1,0 +1,166 @@
+
+.project-list {
+    display: flex;
+    gap: 24px;
+    margin-top: 18px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.project-item {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: none;
+    background: #f7faff;
+    border: 2px solid #b8cbf3;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(55, 60, 131, 0.08);
+    padding: 18px 16px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.project-item:hover {
+    border-color: #3371ce;
+    box-shadow: 0 4px 16px rgba(55, 60, 131, 0.18);
+}
+
+.project-item h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #3371ce;
+}
+
+.project-item p {
+    margin-bottom: 16px;
+    color: #222;
+}
+
+.github-btn {
+    display: inline-block;
+    padding: 7px 16px;
+    background: #3371ce;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.2s;
+    margin-top: auto;
+    cursor: pointer;
+}
+
+.github-btn:hover {
+    background: #222;
+}
+.tech-img {
+    padding: 4px;
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+}
+/* New styles for skill set and tech icons */
+.skill-set {
+    display: flex;
+    gap: 32px;
+}
+
+.skill-set > div {
+    flex: 1;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+ul li {
+    background-color: #e3eafc;
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: background 0.2s;
+    display: inline-block;
+    margin: 0;
+    cursor: pointer;
+}
+
+ul li:hover {
+    background-color: #b8cbf3;
+}
+
+.tech-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+* {
+    font-family: "Stack Sans Notch", sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.main {
+    width: 60%;
+    margin: 40px auto;
+    background-color: #cbdafc;
+    border-radius: 12px;
+    padding: 18px 25px;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+}
+
+.icon-container i {
+    border-radius: 50px;
+    padding: 12px ;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(237, 240, 242);
+    box-shadow: #b8cbf3 0px 3px 8px;
+    width: fit-content;
+    font-size: 22px;
+    color: #3371ce;
+    margin-right: 10px;
+}
+
+.icon-container h2 {
+    font-size: 20px;
+    margin: 0;
+    color: #111827;
+}
+
+hr {
+    border: none;
+    border-top: 3px solid #373c83;
+    margin: 16px 0;
+    padding: 10px;
+}
+
+@media (max-width: 900px) {
+    .main {
+        width: 90%;
+        padding: 10px;
+        margin: 10px auto;
+    }
+    .skill-set {
+        flex-direction: column;
+        gap: 18px;
+    }
+    .project-list {
+        flex-direction: column;
+        gap: 18px;
+    }
+    .tech-icons {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+}
