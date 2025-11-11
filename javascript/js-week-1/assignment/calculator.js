@@ -43,3 +43,16 @@ function priceEstimation(name, paidRend, estimatedRent) {
 
 priceEstimation("Peter", peterRentPaid, peterEstimatedRent);
 priceEstimation("Julia", juliaRentPaid, juliaEstimatedRent);
+
+console.log("____EZ-Name____");
+
+const firstWords = ["Nova", "Tech", "Pixel", "Prime", "Next", "Hyper", "Bold", "Code", "Core", "Echo"];
+const secondWords = ["Nest", "Loop", "Atom", "Grid", "Vertex", "Peak", "Nexus", "Cloud", "Byte", "Motion"];
+
+const randomNumber1 = Math.floor(Math.random() * 10);
+const randomNumber2 = Math.floor(Math.random() * 10);
+
+const startupName = firstWords[randomNumber1] + " " + secondWords[randomNumber2];
+
+const startupNameMessage = `The startup: ${startupName} contains ${startupName.length} characters.`
+console.log(startupNameMessage);
