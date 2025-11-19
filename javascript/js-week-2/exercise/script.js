@@ -92,3 +92,36 @@ const addStudentFromArray = (studentArray) => {
 
 const totalStudent = getNumberOfStudents()
 console.log(`Total number of student in this class is ${totalStudent}`)
+
+// Candy helper 
+console.log('---- Candy shop----')
+
+const candyPrice = {
+    "Sweet": 0.5,
+    "Chocolate": 0.7,
+    "Toffee": 1.1,
+    "Chewing-gum": 0.03
+}
+
+const amountToSpend = Math.random() * 100;
+const broughtCandy = [];
+
+const addCandy = (candyType, weight) => {
+    (candyPrice[candyType]) 
+        ? broughtCandy.push(candyPrice[candyType] * weight)
+        : console.log(`${candyType} is not included`)   
+}
+
+const canBuyMoreCandy = () => broughtCandy.reduce((sum, price) => sum + price, 0) < amountToSpend;
+
+addCandy('Sweet', 400);
+addCandy('Toffee', 300);
+addCandy('Toffee', 500);
+addCandy('Chocolate', 300);
+addCandy('Chewing-gum', 200);
+
+const message = canBuyMoreCandy()
+	? 'You can buy more'
+	:  'You cross your limit';
+
+console.log(message);
