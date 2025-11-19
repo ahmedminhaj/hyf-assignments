@@ -94,4 +94,4 @@ addStudentToClass('Fedrick');
 addStudentToClass('Anna');
 
 const totalStudent = getNumberOfStudents()
-console.log(totalStudent)
+console.log(`Total number of student in this class is ${totalStudent}`)
