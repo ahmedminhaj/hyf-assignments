@@ -34,3 +34,27 @@ const getEventWeekDay = (remainingDay) => {
     return eventWeekDay;
 }
 console.log(`Event is ${getEventWeekDay(11)}`);
+
+// Weather wear 
+console.log('----Weather wear----');
+const getOutfitBasedOnWeather = (temperature) => {
+    if (temperature >= 30) {
+        return "T-shirt, shorts.";
+    } 
+    else if (temperature >= 20 && temperature < 30) {
+        return "Shirt, light jeans.";
+    } 
+    else if (temperature >= 10 && temperature < 20) {
+        return "Long sleeve shirt or light sweater and jeans.";
+    } 
+    else if (temperature >= 0 && temperature < 10) {
+        return "Warm jacket, sweater.";
+    } 
+    else {
+        return "Heavy coat, gloves, scarf.";
+    } 
+}
+
+const clothsToWear = getOutfitBasedOnWeather(-1);
+console.log(clothsToWear);
+
