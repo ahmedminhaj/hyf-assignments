@@ -81,17 +81,14 @@ function getNumberOfStudents() {
   return class07Students.length;
 }
 
-addStudentToClass('Jack');
-addStudentToClass('Jon');
-addStudentToClass('');
-addStudentToClass('Xhaka');
-addStudentToClass('Mash');
-addStudentToClass('Saka');
-addStudentToClass('Queen Mary');
-addStudentToClass('Maria');
-addStudentToClass('Maria');
-addStudentToClass('Fedrick');
-addStudentToClass('Anna');
+const students = ['Jack', 'Jon', '', 'Xhaka', 'Saka', 'Queen Mary', 'Maria', 'Maria', 'Fedrick', 'Max'];
+addStudentFromArray(students);
+
+const addStudentFromArray = (studentArray) => {
+    for(let i = 0; i < studentArray.length; i++) {
+        addStudentToClass(studentArray[i]);
+    }
+}
 
 const totalStudent = getNumberOfStudents()
 console.log(`Total number of student in this class is ${totalStudent}`)
