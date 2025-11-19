@@ -58,3 +58,40 @@ const getOutfitBasedOnWeather = (temperature) => {
 const clothsToWear = getOutfitBasedOnWeather(-1);
 console.log(clothsToWear);
 
+// student Manager 
+console.log('----Student Manager----')
+const class07Students = [];
+function addStudentToClass(studentName) {
+        
+    if (!class07Students.includes(studentName)){
+        if (studentName !== '' ){
+            if (class07Students.length < 7 || studentName === "Queen Mary") {
+                class07Students.push(studentName)
+            } else {
+                console.log('Cannot add more students to the class 07.')
+            }
+        }
+    } else {
+        console.log(`${studentName} is already in the class.`)
+    }
+  
+}
+
+function getNumberOfStudents() {
+  return class07Students.length;
+}
+
+addStudentToClass('Jack');
+addStudentToClass('Jon');
+addStudentToClass('');
+addStudentToClass('Xhaka');
+addStudentToClass('Mash');
+addStudentToClass('Saka');
+addStudentToClass('Queen Mary');
+addStudentToClass('Maria');
+addStudentToClass('Maria');
+addStudentToClass('Fedrick');
+addStudentToClass('Anna');
+
+const totalStudent = getNumberOfStudents()
+console.log(totalStudent)
