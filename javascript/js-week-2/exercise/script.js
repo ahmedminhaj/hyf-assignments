@@ -82,13 +82,13 @@ function getNumberOfStudents() {
 }
 
 const students = ['Jack', 'Jon', '', 'Xhaka', 'Saka', 'Queen Mary', 'Maria', 'Maria', 'Fedrick', 'Max'];
-addStudentFromArray(students);
 
 const addStudentFromArray = (studentArray) => {
     for(let i = 0; i < studentArray.length; i++) {
         addStudentToClass(studentArray[i]);
     }
 }
+addStudentFromArray(students);
 
 const totalStudent = getNumberOfStudents()
 console.log(`Total number of student in this class is ${totalStudent}`)
