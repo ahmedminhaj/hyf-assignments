@@ -1,3 +1,5 @@
+console.log("_____Age-ify_____");
+
 const yearOfBirth = 1999;
 const yearFuture = 2030;
 
@@ -5,7 +7,6 @@ const age = 2030 - 1999;
 
 const message = `You will be ${age} years old in ${yearFuture}.`;
 
-console.log("_____Age-ify_____");
 console.log(message);
 
 const dogYearBirth = 2019;
@@ -37,8 +38,8 @@ function rentCalculate(volumeInMeters, gardenSizeInM2) {
 const peterEstimatedRent = rentCalculate(peterHouseVolumeInM2, peterGardenSize);
 const juliaEstimatedRent = rentCalculate(juliaHouseVolumeInM2, juliaGardenSize);
 
-function priceEstimation(name, paidRend, estimatedRent) {
-    console.log(`${name} is paying  ${(paidRend > estimatedRent) ? "much" : "little"}.`) 
+function priceEstimation(name, paidRent, estimatedRent) {
+    console.log(`${name} is paying ${(paidRent > estimatedRent) ? "much" : "little"}.`) 
 }
 
 priceEstimation("Peter", peterRentPaid, peterEstimatedRent);
