@@ -126,3 +126,52 @@ console.log(notes);
 logOutNotesFormatted();
 updateNote("Get some groceries", 1);
 logOutNotesFormatted();
+
+//*************************************************************** */
+console.log("---- Smart Phone Usage App----");
+
+const activities = [];
+const today = new Date();
+
+const addActivity = (activity, duration) => {
+    
+    const newActivity = {
+        date: today.toLocaleDateString("en-US"),
+        activity: activity,
+        duration: duration
+    };
+
+    activities.push(newActivity);
+}
+
+addActivity("Youtube", 30);
+addActivity("Games", 15);
+addActivity("Instagram", 10);
+
+const showStatus = () => {
+    let totalUsage = 0;
+    let todaysActivities = 0;
+    const usageLimit = 60;
+    console.log(today.toLocaleDateString("en-us"))
+    activities.forEach(activity => {
+        if (activity.date == today.toLocaleDateString("en-us")) {
+            todaysActivities += 1;
+            totalUsage += activity.duration;
+        } 
+    });
+    (totalUsage < usageLimit) 
+        ? console.log(`You have added ${todaysActivities} activities. They amount to ${totalUsage} min. of usage`)
+        : console.log(`You have reached your limit, no more smartphone for you!`)
+}
+
+showStatus();
+
+const mostUsage = () => {
+    const most = activities.reduce((max, activity) => 
+        activity.duration > max.duration ? activity : max
+    );
+
+    console.log(`You have spent most time ${most.duration} min. on ${most.activity}.`)
+}
+
+mostUsage();
