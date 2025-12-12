@@ -48,3 +48,4 @@ response: JSON
 ![Alt Text](diagram/recipe%20app_%20view%20specific%20recipe.png)
 ![Alt Text](diagram/recipe%20app_%20add%20new%20recipe.png)
 ![Alt Text](diagram/recipe%20app_%20delete%20a%20recipe.png)
+![Alt Text](diagram/recipe%20app_%20edit%20a%20recipe.png)
