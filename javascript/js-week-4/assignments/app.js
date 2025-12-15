@@ -2,17 +2,19 @@ let userName = "Benjamin";
 let todos = [];
 
 const getReply = (command) => {
+    
+    if (typeof(command) !== 'string') return;
 
     // name setting
     if (command.toLowerCase().startsWith("hello my name is")) {
         const name = command.split("Hello my name is")[1].trim();
 
-        userName = name;
+        if (name !== '' && name !== undefined) userName = name;
         return `Nice to meet you ${name}`;
     }
 
     if (command.toLowerCase().includes("what is my name")) {
-        return `Your name is ${userName}`;
+        return userName !== undefined ? `Your name is ${userName}` : `I don't know your name`;
     }
 
     // add todo task
@@ -73,9 +75,17 @@ const getReply = (command) => {
     const isArithmeticCommand = (command) => /[=\-+*/]/.test(command);
 
     if (command.toLowerCase().startsWith("what is") && isArithmeticCommand(command)) {
-        const expression = command.replace(/what is/i, "");
-        const result = eval(expression);
-        return `${expression} = ${result}`;
+        const expression = command.match(/(-?\d+)\s*([+\-*/])\s*(-?\d+)/);
+        const [query, a, operator, b] = expression;
+        const operation = {
+            '+': (x, y) => x + y,
+            '-': (x, y) => x - y,
+            '*': (x, y) => x * y,
+            '/': (x, y) => x / y
+        };
+
+        const result = operation[operator](a, b);
+        return `${query} = ${result}`;
     }
 
     // timer
