@@ -9,7 +9,7 @@ const getReply = (command) => {
     if (command.toLowerCase().startsWith("hello my name is")) {
         const name = command.split("Hello my name is")[1].trim();
 
-        if (name !== '' && name !== undefined) userName = name;
+        if (!!name) userName = name;
         return `Nice to meet you ${name}`;
     }
 
