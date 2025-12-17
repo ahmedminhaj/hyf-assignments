@@ -5,7 +5,7 @@ SELECT COUNT(*) AS TotalTask FROM task;
 SELECT COUNT(*) AS InvalidDueDateTask FROM task WHERE due_date IS NULL;
 
 -- Find all the tasks that are marked as done.
-SELECT * FROM task WHERE status_id = (SELECT id FROM status WHERE name = 'Done');
+SELECT * FROM task WHERE status_id = (SELECT id FROM status WHERE name = 'Done' LIMIT 1);
 
 -- Find all the tasks that are not marked as done.
 SELECT * FROM task t JOIN status s ON t.status_id = s.id WHERE s.name != 'Done';
