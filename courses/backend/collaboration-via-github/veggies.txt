@@ -3,3 +3,5 @@ Broccoli
 Potato
 Tomato
 Cucumber
+Pepper
+Zucchini
