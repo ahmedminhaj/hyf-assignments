@@ -1,6 +1,6 @@
 Carrot
 Broccoli
-Kale
+Potato
 Tomato
 Cucumber
 Pepper
