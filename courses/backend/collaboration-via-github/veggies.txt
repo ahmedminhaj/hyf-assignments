@@ -1,5 +1,7 @@
 Carrot
 Broccoli
-Spinach
+Kale
 Tomato
 Cucumber
+Pepper
+Zucchini
