@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Dataset Explorer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+  <div class="title-block">
+    <h1>Movie<span>DB</span> Explorer</h1>
+    <p>JavaScript array method results visualised — filter · map · reduce</p>
+  </div>
+  <div class="stat-chips">
+    <div class="chip"><strong id="total-count">–</strong>Total Films</div>
+    <div class="chip"><strong id="avg-chip">–</strong>Avg Rating</div>
+    <div class="chip"><strong id="year-range">–</strong>Year Span</div>
+  </div>
+</header>
+
+<nav class="tabs-wrapper">
+  <div class="tabs" role="tablist">
+    <button class="tab-btn active" data-panel="stats" role="tab">Movie Stats</button>
+    <button class="tab-btn" data-panel="short" role="tab">Short Titles <span class="count" id="cnt-short"></span></button>
+    <button class="tab-btn" data-panel="long" role="tab">Long Titles <span class="count" id="cnt-long"></span></button>
+    <button class="tab-btn" data-panel="eighties" role="tab">80s Movies <span class="count" id="cnt-80s"></span></button>
+    <button class="tab-btn" data-panel="tagged" role="tab">Rating Tags <span class="count" id="cnt-tagged"></span></button>
+    <button class="tab-btn" data-panel="above6" role="tab">Rating &gt; 6 <span class="count" id="cnt-above6"></span></button>
+    <button class="tab-btn" data-panel="keywords" role="tab">Keywords</button>
+    <button class="tab-btn" data-panel="dupwords" role="tab">Dup Words <span class="count" id="cnt-dup"></span></button>
+    <button class="tab-btn" data-panel="avgrating" role="tab">Avg Rating</button>
+  </div>
+</nav>
+
+<main class="content">
+
+  <!-- ── STATS ─────────────────────────────────────── -->
+  <section class="panel active" id="panel-stats">
+    <div class="panel-header">
+      <h2>Movie Quality Stats</h2>
+      <p>All movies reduced into three quality buckets using .reduce()</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card good">
+        <div class="stat-label">Good Movies</div>
+        <div class="stat-value" id="stat-good">–</div>
+        <div class="stat-threshold">rating ≥ 7</div>
+      </div>
+      <div class="stat-card avg">
+        <div class="stat-label">Average Movies</div>
+        <div class="stat-value" id="stat-avg">–</div>
+        <div class="stat-threshold">rating ≥ 4</div>
+      </div>
+      <div class="stat-card bad">
+        <div class="stat-label">Bad Movies</div>
+        <div class="stat-value" id="stat-bad">–</div>
+        <div class="stat-threshold">rating &lt; 4</div>
+      </div>
+    </div>
+    <div class="stats-legend">
+      <div class="legend-row"><div class="legend-dot good-dot"></div>Good: rating ≥ 7.0</div>
+      <div class="legend-row"><div class="legend-dot avg-dot"></div>Average: 4.0 ≤ rating &lt; 7.0</div>
+      <div class="legend-row"><div class="legend-dot bad-dot"></div>Bad: rating &lt; 4.0</div>
+    </div>
+  </section>
+
+  <!-- ── SHORT TITLES ───────────────────────────────── -->
+  <section class="panel" id="panel-short">
+    <div class="panel-header">
+      <h2>Short Titles</h2>
+      <p>Movies with title length ≤ 5 characters — filter(movie => movie.title.length ≤ 5)</p>
+      <span class="result-count" id="rc-short"></span>
+    </div>
+    <div class="movie-grid" id="grid-short"></div>
+  </section>
+
+  <!-- ── LONG TITLES ────────────────────────────────── -->
+  <section class="panel" id="panel-long">
+    <div class="panel-header">
+      <h2>Long Titles</h2>
+      <p>Movies with title length ≥ 10 characters — showing first 200 results</p>
+      <span class="result-count" id="rc-long"></span>
+    </div>
+    <div class="movie-grid" id="grid-long"></div>
+  </section>
+
+  <!-- ── 80s MOVIES ─────────────────────────────────── -->
+  <section class="panel" id="panel-eighties">
+    <div class="panel-header">
+      <h2>80s Movies</h2>
+      <p>filter(movie => movie.year >= 1980 &amp;&amp; movie.year &lt;= 1989)</p>
+      <span class="result-count" id="rc-80s"></span>
+    </div>
+    <div class="movie-grid" id="grid-eighties"></div>
+  </section>
+
+  <!-- ── RATING TAGS ────────────────────────────────── -->
+  <section class="panel" id="panel-tagged">
+    <div class="panel-header">
+      <h2>Rating Tags</h2>
+      <p>map() adds a "tag" key — Good / Average / Bad — to each movie object</p>
+      <span class="result-count" id="rc-tagged"></span>
+    </div>
+    <div class="movie-grid" id="grid-tagged"></div>
+  </section>
+
+  <!-- ── ABOVE 6 RATINGS ────────────────────────────── -->
+  <section class="panel" id="panel-above6">
+    <div class="panel-header">
+      <h2>Ratings Above 6</h2>
+      <p>filter(rating > 6).map(movie => movie.rating) — showing first 120 values</p>
+      <span class="result-count" id="rc-above6"></span>
+    </div>
+    <div class="rating-bar-list" id="list-above6"></div>
+  </section>
+
+  <!-- ── KEYWORDS ───────────────────────────────────── -->
+  <section class="panel" id="panel-keywords">
+    <div class="panel-header">
+      <h2>Keyword Search</h2>
+      <p>Case-sensitive match — titles containing "Surfer", "Alien", or "Benjamin"</p>
+    </div>
+    <div class="keyword-summary" id="kw-summary"></div>
+    <div class="movie-grid" id="grid-keywords"></div>
+  </section>
+
+  <!-- ── DUPLICATE WORDS ────────────────────────────── -->
+  <section class="panel" id="panel-dupwords">
+    <div class="panel-header">
+      <h2>Duplicate Words in Title</h2>
+      <p>Titles where any non-stopword appears more than once — showing first 80 results</p>
+      <span class="result-count" id="rc-dup"></span>
+    </div>
+    <table class="dup-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Year</th>
+          <th>Rating</th>
+          <th>Repeated Words</th>
+        </tr>
+      </thead>
+      <tbody id="tbody-dup"></tbody>
+    </table>
+  </section>
+
+  <!-- ── AVG RATING ─────────────────────────────────── -->
+  <section class="panel" id="panel-avgrating">
+    <div class="panel-header">
+      <h2>Average Rating</h2>
+      <p>movies.reduce((acc, m) => acc + m.rating, 0) / movies.length</p>
+    </div>
+    <div class="avg-display">
+      <div class="avg-number" id="avg-big">–</div>
+      <div class="avg-label">out of 10<br>across all films</div>
+    </div>
+    <div id="decade-section"></div>
+  </section>
+
+</main>
+
+<script src="./script.js"></script>
+<script src="./movies.js"></script>
+</body>
+</html>
