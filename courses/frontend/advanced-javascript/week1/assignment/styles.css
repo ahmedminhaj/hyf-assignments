@@ -1,0 +1,523 @@
+/* ── CSS Variables ────────────────────────────────── */
+:root {
+  --bg:      #0b0f1a;
+  --surface: #111827;
+  --border:  #1f2d44;
+  --accent:  #e8a020;
+  --accent2: #3b82f6;
+  --text:    #d1d9e6;
+  --muted:   #5a6a82;
+  --good:    #22c55e;
+  --avg:     #f59e0b;
+  --bad:     #ef4444;
+  --tab-h:   56px;
+}
+
+/* ── Reset ────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Base ─────────────────────────────────────────── */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar          { width: 6px; height: 6px; }
+::-webkit-scrollbar-track    { background: var(--bg); }
+::-webkit-scrollbar-thumb    { background: var(--border); border-radius: 3px; }
+
+/* ── Header ───────────────────────────────────────── */
+header {
+  padding: 48px 48px 32px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  background: linear-gradient(180deg, #0d1525 0%, var(--bg) 100%);
+}
+
+header .title-block { flex: 1; }
+
+header h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: #fff;
+}
+
+header h1 span { color: var(--accent); }
+
+header p {
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-style: italic;
+  font-family: 'Lora', serif;
+}
+
+/* ── Header Chips ─────────────────────────────────── */
+.stat-chips {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.chip strong {
+  display: block;
+  font-size: 1.4rem;
+  color: var(--accent);
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* ── Tabs ─────────────────────────────────────────── */
+.tabs-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.tabs {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0 48px;
+  gap: 0;
+}
+
+.tabs::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  flex-shrink: 0;
+  height: var(--tab-h);
+  padding: 0 22px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--muted);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.tab-btn:hover { color: var(--text); }
+
+.tab-btn.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.tab-btn .count {
+  display: inline-block;
+  margin-left: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-size: 0.65rem;
+  color: var(--muted);
+  vertical-align: middle;
+}
+
+.tab-btn.active .count {
+  background: #3a2a08;
+  color: var(--accent);
+}
+
+/* ── Content Area ─────────────────────────────────── */
+.content { padding: 40px 48px 80px; }
+
+.panel       { display: none; animation: fadeUp 0.3s ease; }
+.panel.active { display: block; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Panel Header ─────────────────────────────────── */
+.panel-header {
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.panel-header h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+  color: #fff;
+}
+
+.panel-header p {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-family: 'Lora', serif;
+  font-style: italic;
+}
+
+.result-count {
+  display: inline-block;
+  margin-top: 10px;
+  background: #1a2a0a;
+  border: 1px solid #2d4a14;
+  color: var(--good);
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+}
+
+/* ── Movie Grid & Cards ───────────────────────────── */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.movie-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px 16px;
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.movie-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.movie-card .card-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.movie-card .card-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+.rating-badge {
+  background: #1a1200;
+  border: 1px solid #3a2a00;
+  color: var(--accent);
+  border-radius: 3px;
+  padding: 2px 7px;
+  font-weight: 600;
+  font-size: 0.72rem;
+}
+
+/* ── Stats Panel ──────────────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 700px;
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.stat-card .stat-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.stat-card .stat-value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.stat-card .stat-threshold {
+  font-size: 0.68rem;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.stat-card.good { border-color: #1a4a2a; }
+.stat-card.good .stat-value { color: var(--good); }
+
+.stat-card.avg { border-color: #4a3a0a; }
+.stat-card.avg .stat-value { color: var(--avg); }
+
+.stat-card.bad { border-color: #4a1a1a; }
+.stat-card.bad .stat-value { color: var(--bad); }
+
+.stats-legend {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 400px;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.74rem;
+  color: var(--muted);
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-dot.good-dot { background: var(--good); }
+.legend-dot.avg-dot  { background: var(--avg); }
+.legend-dot.bad-dot  { background: var(--bad); }
+
+/* ── Rating Bar List (Ratings > 6) ───────────────── */
+.rating-bar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 600px;
+}
+
+.rating-bar-row {
+  display: grid;
+  grid-template-columns: 50px 1fr 60px;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.7rem;
+}
+
+.bar-title {
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.72rem;
+}
+
+.rating-bar-row .idx { color: var(--muted); text-align: right; }
+
+.bar-track {
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.rating-bar-row .val { color: var(--accent); font-weight: 600; }
+
+/* ── Keyword Panel ────────────────────────────────── */
+.keyword-summary {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.kw-chip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px 20px;
+  text-align: center;
+  min-width: 140px;
+}
+
+.kw-chip .kw-word {
+  font-size: 0.68rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+
+.kw-chip .kw-count {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.8rem;
+  color: var(--accent2);
+  line-height: 1;
+}
+
+.kw-chip.total {
+  border-color: var(--accent2);
+  min-width: 160px;
+}
+
+.kw-chip.total .kw-count { color: var(--accent); }
+
+/* ── Duplicate Words Table ────────────────────────── */
+.dup-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.76rem;
+  max-width: 860px;
+}
+
+.dup-table th {
+  text-align: left;
+  padding: 10px 16px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dup-table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+.dup-table tr:hover td { background: var(--surface); }
+
+.dup-table .row-num  { color: var(--muted); }
+.dup-table .row-title { color: #fff; }
+
+.dup-word {
+  display: inline-block;
+  background: #1a1200;
+  border: 1px solid #3a2a00;
+  color: var(--accent);
+  border-radius: 3px;
+  padding: 1px 7px;
+  font-size: 0.68rem;
+  margin: 2px;
+}
+
+.dup-stopword-note {
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+/* ── Average Rating Panel ─────────────────────────── */
+.avg-display {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.avg-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 8rem;
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.avg-label {
+  padding-bottom: 16px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-family: 'Lora', serif;
+  font-style: italic;
+}
+
+/* ── Decade Table ─────────────────────────────────── */
+.decade-section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.decade-table {
+  width: 100%;
+  max-width: 700px;
+  border-collapse: collapse;
+  font-size: 0.76rem;
+}
+
+.decade-table th {
+  text-align: left;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.decade-table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.decade-table tr:hover td { background: var(--surface); }
+
+.decade-table .decade-label { color: var(--accent); }
+
+.decade-bar-track {
+  height: 6px;
+  width: 200px;
+  display: inline-block;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+/* ── Tag colours (used in JS inline) ─────────────── */
+.tag-good    { color: var(--good); }
+.tag-average { color: var(--avg); }
+.tag-bad     { color: var(--bad); }
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 640px) {
+  header,
+  .content      { padding: 24px 20px; }
+  .tabs         { padding: 0 20px; }
+  .stats-grid   { grid-template-columns: 1fr; }
+  .avg-number   { font-size: 5rem; }
+}
