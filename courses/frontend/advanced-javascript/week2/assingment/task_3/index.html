@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Key Press Battle</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="arena">
+      <h1 class="title">Key Press Battle</h1>
+      <p class="subtitle">Press <kbd>S</kbd> vs <kbd>L</kbd> — who's faster?</p>
+
+      <div class="setup">
+        <label for="dur">Duration (seconds):</label>
+        <input type="number" id="dur" value="5" min="1" max="60" step="1" />
+        <button id="startBtn">Start game!</button>
+      </div>
+
+      <div class="timer-bar-wrap">
+        <div class="timer-bar" id="timerBar"></div>
+      </div>
+      <p class="timer-label" id="timerLabel">Ready — set your time and press start</p>
+
+      <div class="players">
+        <div class="player" id="playerS">
+          <div class="player-key" id="keyS">S</div>
+          <div class="player-label">Player 1</div>
+          <div class="player-count" id="countS">0</div>
+        </div>
+        <div class="player" id="playerL">
+          <div class="player-key" id="keyL">L</div>
+          <div class="player-label">Player 2</div>
+          <div class="player-count" id="countL">0</div>
+        </div>
+      </div>
+
+      <div class="result" id="result">
+        <div class="result-emoji" id="resultEmoji"></div>
+        <div class="result-title" id="resultTitle"></div>
+        <div class="result-sub" id="resultSub"></div>
+        <button class="btn-again" id="againBtn">Play again</button>
+      </div>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>

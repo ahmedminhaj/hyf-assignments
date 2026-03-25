@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Exercises</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1> Advance JS Exercises</h1>
+
+<div class="group-header">▸ Timers & Callbacks</div>
+
+<div class="section">
+  <div class="section-title">Auto delay</div>
+  <div class="section-desc">Logs "Called after 2.5 seconds" automatically on page load</div>
+</div>
+
+<div class="section">
+  <div class="section-title">Delay function with multiple arguments</div>
+  <div class="section-desc">Called automatically with three different arguments on page load</div>
+</div>
+
+<div class="section">
+  <div class="section-title">Button → 5s delay</div>
+  <div class="section-desc">Clicking starts a 5-second countdown, then logs to console</div>
+  <button id="btn-1-3">Click me</button>
+</div>
+
+<div class="group-header">▸ Higher-Order Functions</div>
+
+<div class="section">
+  <div class="section-title">Planet logger (HOF)</div>
+  <div class="section-desc">logPlanet(logEarth) and logPlanet(logSaturn) called automatically on load</div>
+  <div class="row">
+    <button onclick="logPlanet(logEarth)">Log Earth</button>
+    <button onclick="logPlanet(logSaturn)">Log Saturn</button>
+  </div>
+</div>
+
+<div class="group-header">▸ Geolocation</div>
+
+<div class="section">
+  <div class="section-title">Log location</div>
+  <div class="section-desc">Logs latitude & longitude to console</div>
+  <button id="btn-location">Log location</button>
+</div>
+
+<div class="section">
+  <div class="section-title">Show on map</div>
+  <div class="section-desc">Opens Google Maps at your coordinates</div>
+  <button class="blue" id="btn-map">Show on map</button>
+</div>
+
+<div class="group-header">▸ runAfterDelay</div>
+
+<div class="section">
+  <div class="section-title">runAfterDelay(delay, callback)</div>
+  <div class="section-desc">Enter a delay in seconds, click Run — callback logs to console</div>
+  <div class="row">
+    <input type="number" id="delay-input" min="0.1" step="0.5" value="2" placeholder="seconds" />
+    <button id="btn-run-delay">Run</button>
+  </div>
+</div>
+
+<div class="group-header">▸ Double Click</div>
+
+<div class="section">
+  <div class="section-title">Double-click detection</div>
+  <div class="section-desc"> Two clicks within 0.5s logs "double click!" to console</div>
+  <div class="double-click-area" id="click-area">Click here to test double click</div>
+</div>
+
+<div class="section">
+  <div class="section-title">Joke Creator</div>
+  <div class="section-desc">Calls the appropriate joke function and logs it to console</div>
+  <div class="row">
+    <button id="btn-funny">Tell funny joke ✓</button>
+    <button class="red" id="btn-bad">Tell bad joke ✗</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

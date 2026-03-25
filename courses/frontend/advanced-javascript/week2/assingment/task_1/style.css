@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #333;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 16px;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+p.hint {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 32px;
+}
+
+.group-header {
+  width: 100%;
+  max-width: 520px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #888;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 6px;
+  margin: 24px 0 12px;
+}
+
+.section {
+  width: 100%;
+  max-width: 520px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.section-desc {
+  font-size: 0.8rem;
+  color: #888;
+  font-family: monospace;
+  margin-bottom: 12px;
+}
+
+button {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+button:hover {
+  background: #333;
+  color: #fff;
+}
+
+input[type=number] {
+  padding: 7px 10px;
+  font-size: 0.85rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 90px;
+  margin-right: 8px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.double-click-area {
+  margin-top: 10px;
+  padding: 24px;
+  border: 2px dashed #ccc;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #888;
+  cursor: pointer;
+  user-select: none;
+}
+
+.double-click-area:hover {
+  border-color: #333;
+  color: #333;
+}
