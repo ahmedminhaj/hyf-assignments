@@ -1,0 +1,7 @@
+Project structure 
+Trello board for a event listing website Evento
+
+I am planning for building a website that will show the list of upcoming events 
+
+Here is the Trello Board link: 
+https://trello.com/invite/b/696f4f8aab4e09d1d8fe0915/ATTIa8a31db296ef0306a6777bb8a36212b101457C59/evento
