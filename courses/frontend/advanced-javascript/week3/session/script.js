@@ -59,9 +59,9 @@ const fetchMovies = async () => {
 
 // fetchMovies()
 
-const getAstronauts = await fetch(astronautsAPI);
-const getMovies = await fetch(movieAPI);
-const batteryStatus = await navigator.getBattery();
+const getAstronauts = fetch(astronautsAPI);
+const getMovies = fetch(movieAPI);
+const batteryStatus = navigator.getBattery();
 
 Promise.all([getAstronauts, getMovies, batteryStatus]).then(async ([astronautsResponse, moviesResponse, batteryLevel]) => {
     const astronauts = await astronautsResponse.json();
