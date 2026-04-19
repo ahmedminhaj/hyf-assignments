@@ -1,5 +1,5 @@
 class StorageService {
-  static BASE = 'https://crudcrud.com/api/2a01759b5dbd42629cc37e794c59fcf7/screenshots';
+  static BASE = `https://crudcrud.com/api/${Config.CRUDCRUDAPI_KEY}/screenshots`;
 
   static async save(data) {
     let res;

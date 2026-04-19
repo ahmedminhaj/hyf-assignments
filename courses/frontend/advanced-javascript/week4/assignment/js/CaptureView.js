@@ -1,9 +1,10 @@
 class CaptureView {
-  constructor() {
+  constructor(onSaved) {
+    this.onSaved = onSaved;
     this.btn = document.getElementById('capture-btn');
     this.input = document.getElementById('url-input');
     this.preview = document.getElementById('preview-area');
-    this.error = document.getElementById('capture-error');
+    this.errorEl = document.getElementById('capture-error');
 
     this.btn.addEventListener('click', () => this.capture());
     this.input.addEventListener('keydown', e => { if (e.key === 'Enter') this.capture(); });
@@ -11,21 +12,20 @@ class CaptureView {
 
   showError(err) {
     const msg = err instanceof AppError ? err.toUserMessage() : err.message;
-    this.error.textContent = '';                    
+    this.errorEl.replaceChildren();
     const box = document.createElement('div');
     box.className = 'error-box';
-    box.textContent = msg;                        
-    this.error.appendChild(box);
+    box.textContent = msg;
+    this.errorEl.appendChild(box);
   }
 
-  clearError() {
-    this.error.textContent = '';
+  clearError() { 
+    this.errorEl.replaceChildren();
   }
 
   setLoading(on) {
     this.btn.disabled = on;
-    this.btn.replaceChildren();  
-
+    this.btn.replaceChildren();
     if (on) {
       const spinner = document.createElement('span');
       spinner.className = 'spinner';
@@ -57,9 +57,24 @@ class CaptureView {
       this.setLoading(false);
       return;
     }
-
     this.setLoading(false);
+
     const screenshot = new Screenshot({ url, imageUrl });
-    this.preview.appendChild(screenshot.render());
+    const card = screenshot.renderPreview(btn => this.save(screenshot, btn));
+    this.preview.appendChild(card);
+  }
+
+  async save(screenshot, btn) {
+    btn.disabled = true;
+    btn.textContent = 'Saving…';
+    try {
+      await screenshot.save();
+      btn.textContent = '✓ Saved';
+      this.onSaved();
+    } catch (e) {
+      btn.disabled = false;
+      btn.textContent = 'Save';
+      this.showError(e instanceof AppError ? e : new AppError(e.message));
+    }
   }
 }
