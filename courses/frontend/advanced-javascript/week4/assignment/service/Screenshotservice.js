@@ -29,7 +29,11 @@ class ScreenshotService {
     }
 
     const imageUrl = json.screenshotUrl || json.screenshot || json.url || json.image;
-    if (!imageUrl) throw new ApiError('No image URL in response: ' + JSON.stringify(json));
+
+    if (!imageUrl || typeof imageUrl !== 'string') {
+      throw new ApiError('No image URL found in response. Keys received: ' + Object.keys(json).join(', '));
+    }
+
     return imageUrl;
   }
 }

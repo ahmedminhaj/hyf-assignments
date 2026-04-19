@@ -9,14 +9,33 @@ class Screenshot {
 
     const card = document.createElement('div');
     card.className = 'preview-card';
-    card.innerHTML = `
-      <div class="preview-bar">
-        <span class="preview-url-text">${shortUrl}</span>
-        <a href="${this.imageUrl}" target="_blank">
-          <button class="primary">View</button>
-        </a>
-      </div>
-      <img class="preview-img" src="${this.imageUrl}" alt="Screenshot of ${shortUrl}" />`;
+
+    const bar = document.createElement('div');
+    bar.className = 'preview-bar';
+
+    const label = document.createElement('span');
+    label.className = 'preview-url-text';
+    label.textContent = shortUrl;  
+
+    const link = document.createElement('a');
+    link.href     = this.imageUrl; 
+    link.download = 'screenshot.png';
+
+    const downloadBtn = document.createElement('button');
+    downloadBtn.className   = 'primary';
+    downloadBtn.textContent = 'Download';
+    link.appendChild(downloadBtn);
+
+    bar.appendChild(label);
+    bar.appendChild(link);
+
+    const img = document.createElement('img');
+    img.className = 'preview-img';
+    img.src = this.imageUrl;       
+    img.alt = `Screenshot of ${shortUrl}`;
+
+    card.appendChild(bar);
+    card.appendChild(img);
 
     return card;
   }
