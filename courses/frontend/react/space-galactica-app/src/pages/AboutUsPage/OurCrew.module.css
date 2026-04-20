@@ -1,0 +1,115 @@
+.crewSection {
+  padding: clamp(56px, 8vw, 96px) clamp(24px, 6vw, 80px);
+  box-sizing: border-box;
+}
+
+/* Header */
+.crewHeader {
+  margin-bottom: clamp(48px, 7vw, 80px);
+  max-width: 560px;
+  animation: fadeUp 0.6s ease both;
+}
+
+.crewEyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  margin: 0 0 14px;
+}
+
+.crewTitle {
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 400;
+  color: #fff;
+  margin: 0 0 16px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.crewDescription {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+/* Grid */
+.crewGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2px;
+}
+
+/* Card */
+.crewCard {
+  display: flex;
+  flex-direction: column;
+  animation: fadeUp 0.65s ease both;
+}
+
+.crewCardImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.crewCardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: grayscale(15%) brightness(0.92);
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.crewCard:hover .crewCardImage {
+  transform: scale(1.04);
+  filter: grayscale(0%) brightness(1);
+}
+
+/* Info */
+.crewCardInfo {
+  padding: 16px 4px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.crewCardName {
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.crewCardRole {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .crewGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
