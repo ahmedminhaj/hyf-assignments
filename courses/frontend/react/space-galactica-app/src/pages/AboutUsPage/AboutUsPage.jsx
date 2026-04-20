@@ -1,5 +1,6 @@
 // import styles from './AboutUsPage.module.css';
 import OurCrew from './OurCrew';
+import OurPartners from './OurPartners';
 import OurValues from './OurValues';
 
 // 🧑🏽‍🚀 Task - Week 1
@@ -27,16 +28,16 @@ import OurValues from './OurValues';
 //   );
 // }
 
-const OurPartners = () => {
-  // 🧑🏽‍🚀 Task - Week 1
-  // Create the "Our Partners section".
-  // Use the descriptions provided in /src/pages/AboutUsPage/README.md.
-  // Use the pictures from /public/business_partners.
-  // Some inspiration ideas can be found in /data/inspiration_about_us.
-  return (
-    <p> ADD OUR PARTNERS HERE </p>
-  );
-}
+// const OurPartners = () => {
+//   // 🧑🏽‍🚀 Task - Week 1
+//   // Create the "Our Partners section".
+//   // Use the descriptions provided in /src/pages/AboutUsPage/README.md.
+//   // Use the pictures from /public/business_partners.
+//   // Some inspiration ideas can be found in /data/inspiration_about_us.
+//   return (
+//     <p> ADD OUR PARTNERS HERE </p>
+//   );
+// }
 
 
 export const Crew = () => {
@@ -52,6 +53,9 @@ export const Crew = () => {
 
          {/* 🧑🏽‍🚀 Task - Week 1 */}
          {/* Use the "OurPartners" component here. */}
+        <section className="card">
+          <OurPartners />
+        </section>
       </main>
     </div>
   );

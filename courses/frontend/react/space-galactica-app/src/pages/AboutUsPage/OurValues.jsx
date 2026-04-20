@@ -1,4 +1,5 @@
 import styles from "./OurValues.module.css";
+import aboutUsStyles from "./AboutUsPage.module.css";
 import { aboutGalacticaData } from "../../../data/about_galactica_data";
 
 const ValueCard = ({ value, index }) => {
@@ -17,8 +18,8 @@ export const OurValues = () => {
   const { values } = aboutGalacticaData;
 
   return (
-    <section className={styles.valuesSection}>
-      <p className={styles.valuesEyebrow}>Our Values</p>
+    <section className={aboutUsStyles.aboutCardSection}>
+      <p className={aboutUsStyles.aboutCardEyebrowTitle}>Our Values</p>
 
       <div className={styles.valuesGrid}>
         {values.map((v, i) => (

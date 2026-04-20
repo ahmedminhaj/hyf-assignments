@@ -1,5 +1,6 @@
 import { aboutGalacticaData } from "../../../data/about_galactica_data";
 import styles from "./OurCrew.module.css";
+import aboutUsStyles from "./AboutUsPage.module.css";
 
 const CrewCard = ({member, index}) => {
   return (
@@ -26,10 +27,10 @@ export const OurCrew = () => {
   const { crew } = aboutGalacticaData;      
 
     return (
-      <section className={styles.crewSection}>
-        <div className={styles.crewHeader}>
-					<p className={styles.crewEyebrow}>Our Team</p>
-					<h4 className={styles.crewTitle}>Meet the Crew</h4>
+      <section className={aboutUsStyles.aboutCardSection}>
+        <div className={aboutUsStyles.aboutUsHeader}>
+					<p className={aboutUsStyles.aboutCardEyebrowTitle}>Our Team</p>
+					<h4 className={aboutUsStyles.aboutUsTitle}>Meet the Crew</h4>
 					<p className={styles.crewDescription}>{crew.description}</p>
         </div>
     
