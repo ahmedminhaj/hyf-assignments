@@ -1,5 +1,7 @@
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from './Footer.module.css';
+import SocialMediaItem from "./SocialMediaItem";
 
 export const Footer = () => {
   const { pathname } = useLocation();
@@ -14,13 +16,15 @@ export const Footer = () => {
       {/* 🧑🏽‍🚀 Task - Week 2 */}
       {/* Create a new list for the Pages. */}
       {/* We need to use the <Link /> component here. */}
-      {/* <div className={styles.pages}>
+      <div>
         <h3>Pages</h3>
-        <ul>
-          <li> <Link/> </li>
-          ...
+        <ul className={styles.footerPageLinks}>
+          <li> <Link to={"/"}>Home</Link></li>
+          <li> <Link to={"/about_us"}>About us</Link></li>
+          <li> <Link to={"/destination"}>Destination</Link></li>
+          <li> <Link to={"/nasa_collaboration"}>Nasa collaboration</Link></li>
         </ul>
-      </div> */}
+      </div>
       {/* Docs for the Link: https://reactrouter.com/api/components/Link#link. */}
 
       {/* 🧑🏽‍🚀 Task - Week 1 */}
@@ -28,18 +32,11 @@ export const Footer = () => {
       <div className={styles.footerLinks}>
         <h3>Follow us</h3>
         <ul className={styles.footerList}>
-          <li>
-            <a href="https://facebook.com">Facebook</a>
-          </li>
-          <li>
-            <a href="https://instagram.com">Instagram</a>
-          </li>
-          <li>
-            <a href="https://tiktok.com">Tiktok</a>
-          </li>
-          <li>
-            <a href="https://google.com">On the streets at night</a>
-          </li>
+          <SocialMediaItem url={"https://facebook.com"} title={"Facebook"} icon={'././public/icons/facebook.png'} />
+          <SocialMediaItem url={"https://instagram.com"} title={"Instagram"} icon={'././public/icons/instagram.png'} />
+          <SocialMediaItem url={"https://tiktok.com"} title={"Tiktok"} icon={'././public/icons/tik-tok.png'} />
+          <SocialMediaItem url={"https://google.com"} title={"Google"} icon={'././public/icons/google.png'} />
+          <SocialMediaItem url={"https://linkedin.com"} title={"LinkedIn"} icon={'././public/icons/linkedin.png'} />
           {/* 🧑🏽‍🚀 Task - Week 2 */}
           {/* Create a <SocialMediaItem /> component and replace all of the list items! */}
           {/* SocialMediaItem should accept the following props: url, title, icon. */}
