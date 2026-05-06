@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./DestinationPage.module.css";
 import PlanetCard from "./PlanetCard";
+import { AddWishlistItem } from "./AddWishlistItem";
 
 // 🧑🏽‍🚀 Task - Week 2
 // Move this to its own file in this folder.
@@ -60,6 +61,7 @@ export const Destinations = () => {
 
           {/* 🧑🏽‍🚀 Task - Week 3 */}
           {/* Use the AddWishlistItem component here. */}
+          <AddWishlistItem onAddWishlistItem={addPlanetToWishlist}/>
 
           {/* 🧑🏽‍🚀 Task - Week 3
           <h3>Your current wishlist</h3>

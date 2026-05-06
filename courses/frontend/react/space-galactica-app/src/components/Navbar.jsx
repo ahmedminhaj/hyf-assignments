@@ -33,6 +33,9 @@ export const Navbar = () => {
         <ul className={styles.navbarList}>
           {/* 🧑🏽‍🚀 Task - Week 2 */}
           {/* Create a <NavItem> component, which accepts the following props: title, link, isActive.  */}
+          
+          {/* 🧑🏽‍🚀 Task - Week 3 */}
+          {/* Replace repeating content by using .map() and the previously created NavItem component. */}
           {navbarItems.map((item, i) => (
             <NavItem
               key={item.link}
@@ -42,8 +45,6 @@ export const Navbar = () => {
               index={`0${i + 1}`}
             />
           ))}
-          {/* 🧑🏽‍🚀 Task - Week 3 */}
-          {/* Replace repeating content by using .map() and the previously created NavItem component. */}
           <li className={styles.wishlistBadge} aria-label="Wishlist">
           </li>
         </ul>
