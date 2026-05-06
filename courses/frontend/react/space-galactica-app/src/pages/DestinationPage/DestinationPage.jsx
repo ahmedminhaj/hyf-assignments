@@ -63,13 +63,18 @@ export const Destinations = () => {
           {/* Use the AddWishlistItem component here. */}
           <AddWishlistItem onAddWishlistItem={addPlanetToWishlist}/>
 
-          {/* 🧑🏽‍🚀 Task - Week 3
-          <h3>Your current wishlist</h3>
-          <div className={styles.wishlistList}>
-            ...
-            Use .map() to display the wishlist planets with the PlanetsWishlistItem component. 
-          </div> 
-          */}
+          {/* 🧑🏽‍🚀 Task - Week 3 */}
+          {planetsWishlist.length > 0 && <>
+            <h3>Your current wishlist</h3>
+            <div className={styles.wishlistList}>
+              {planetsWishlist.map((planet) => (
+                <div key={planet.name} className={styles.wishlistItem}>
+                  <p>{planet.name}</p>
+                  <img className={styles.wishlistItemThumbnail} src={planet.thumbnail} alt={planet.name} />
+                </div>
+              ))}
+            </div>
+          </>}
         </section>
         <section className="card">
           <h2>Possible destinations</h2>
