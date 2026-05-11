@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./DestinationPage.module.css";
 import PlanetCard from "./PlanetCard";
 import { planets } from "../../../data/constant";
+import { uuid } from "react-uuid";
 
 // 🧑🏽‍🚀 Task - Week 2
 // Move this to its own file in this folder.
@@ -74,7 +75,7 @@ export const Destinations = () => {
           {/* Create a <PlanetCard /> component, which accepts the following props: name, description, thumbnail, isSelected, togglePlanetSelection */}
           {planets.map((planet) => (
             <PlanetCard
-              key={planet.name}
+              key={uuid()}
               name={planet.name}
               description={planet.description}
               thumbnail={planet.thumbnail}

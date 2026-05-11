@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styles from './Footer.module.css';
 import SocialMediaItem from "./SocialMediaItem";
 import { socialMediaLinks } from "../../data/constant";
+import { uuid } from "react-uuid";
 
 export const Footer = () => {
   const { pathname } = useLocation();
@@ -39,7 +40,7 @@ export const Footer = () => {
           {/* For the icons, you can download 1-2 social media icons for testing and put it in the /public/socialmedia/ folder. */}
           {socialMediaLinks.map((social) => (
             <SocialMediaItem
-              key={social.title}
+              key={uuid()}
               url={social.url}
               title={social.title}
               icon={social.icon}
