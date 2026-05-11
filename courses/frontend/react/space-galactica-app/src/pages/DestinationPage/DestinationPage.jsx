@@ -20,11 +20,7 @@ export const Destinations = () => {
     // 🧑🏽‍🚀 Task - Week 2
     // When a planet is selected or deselected (toggled), the state of the wishlist planets should be updated accordingly by 
     // calling the addPlanetToWishlist or removePlanetFromWishlist function. You will need a condition here.
-    if (isPlanetInWishlist(name)) {
-      removePlanetFromWishlist(name);
-    } else {
-      addPlanetToWishlist(name, thumbnail);
-    }
+    isPlanetInWishlist(name) ? removePlanetFromWishlist(name) : addPlanetToWishlist(name, thumbnail);
   };
 
   const addPlanetToWishlist = (name, thumbnail) => {
@@ -44,7 +40,7 @@ export const Destinations = () => {
     );
   };
 
-  const numberOfPlanetsInWishlist = planetsWishlist.length;
+  const planetsInWishlistMsg = planetsWishlist.length > 0 ? `You have ${planetsWishlist.length} planets in your wishlist` : "No planets in your wishlist :(";
 
   return (
     <div className="fullBGpicture">
@@ -56,7 +52,7 @@ export const Destinations = () => {
           {/* Display the number of wishlist planets, if there are any planets in the wishlist. */}
           {/* Display the "no planets" message if the wishlist is empty. */}
           {/* 🧑🏽‍🚀 Use a variable to display the number of wishlist planets:  */}
-          <p>{numberOfPlanetsInWishlist > 0 ? `You have ${numberOfPlanetsInWishlist} planets in your wishlist"` : "No planets in your wishlist :("}</p>
+          <p>{ planetsInWishlistMsg }</p>
 
           {/* 🧑🏽‍🚀 Task - Week 3 */}
           {/* Use the AddWishlistItem component here. */}
