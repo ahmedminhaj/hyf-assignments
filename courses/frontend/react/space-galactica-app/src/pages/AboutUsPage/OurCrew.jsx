@@ -1,6 +1,7 @@
 import { aboutGalacticaData } from "../../../data/about_galactica_data";
 import styles from "./OurCrew.module.css";
 import aboutUsStyles from "./AboutUsPage.module.css";
+import uuid from 'react-uuid';
 
 const CrewCard = ({member, index}) => {
   return (
@@ -36,7 +37,7 @@ export const OurCrew = () => {
     
         <div className={styles.crewGrid}>
 					{crew.members.map((member, i) => (
-						<CrewCard key={member.name} member={member} index={i} />
+						<CrewCard key={uuid()} member={member} index={i} />
 					))}
         </div>
     	</section>
