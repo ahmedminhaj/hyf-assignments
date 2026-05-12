@@ -40,7 +40,7 @@ export const Footer = () => {
           {/* For the icons, you can download 1-2 social media icons for testing and put it in the /public/socialmedia/ folder. */}
           {socialMediaLinks.map((social) => (
             <SocialMediaItem
-              key={uuid()}
+              key={uuid}
               url={social.url}
               title={social.title}
               icon={social.icon}

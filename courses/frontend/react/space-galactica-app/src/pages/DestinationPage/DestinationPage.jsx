@@ -75,7 +75,7 @@ export const Destinations = () => {
           {/* Create a <PlanetCard /> component, which accepts the following props: name, description, thumbnail, isSelected, togglePlanetSelection */}
           {planets.map((planet) => (
             <PlanetCard
-              key={uuid()}
+              key={uuid}
               name={planet.name}
               description={planet.description}
               thumbnail={planet.thumbnail}
