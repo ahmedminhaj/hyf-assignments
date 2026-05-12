@@ -40,6 +40,10 @@
   list-style-type: none;
 }
 
-.footerList li {
+.footerList li, .footerPageLinks li {
   padding-block: var(--spacing-04);
+}
+
+.footerPageLinks{
+  list-style: none;
 }

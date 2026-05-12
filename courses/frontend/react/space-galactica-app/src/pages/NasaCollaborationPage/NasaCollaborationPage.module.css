@@ -4,6 +4,9 @@
   height: 100vh;
 }
 
+.roverPhotoCard {
+  padding-bottom: 44px;
+}
 
 .nasaPicOfTheDayImg {
   width: auto;
