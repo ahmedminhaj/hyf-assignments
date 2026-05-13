@@ -2,6 +2,8 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styles from './Footer.module.css';
 import SocialMediaItem from "./SocialMediaItem";
+import { socialMediaLinks } from "../../data/constant";
+import { uuid } from "react-uuid";
 
 export const Footer = () => {
   const { pathname } = useLocation();
@@ -32,15 +34,18 @@ export const Footer = () => {
       <div className={styles.footerLinks}>
         <h3>Follow us</h3>
         <ul className={styles.footerList}>
-          <SocialMediaItem url={"https://facebook.com"} title={"Facebook"} icon={'././public/icons/facebook.png'} />
-          <SocialMediaItem url={"https://instagram.com"} title={"Instagram"} icon={'././public/icons/instagram.png'} />
-          <SocialMediaItem url={"https://tiktok.com"} title={"Tiktok"} icon={'././public/icons/tik-tok.png'} />
-          <SocialMediaItem url={"https://google.com"} title={"Google"} icon={'././public/icons/google.png'} />
-          <SocialMediaItem url={"https://linkedin.com"} title={"LinkedIn"} icon={'././public/icons/linkedin.png'} />
           {/* 🧑🏽‍🚀 Task - Week 2 */}
           {/* Create a <SocialMediaItem /> component and replace all of the list items! */}
           {/* SocialMediaItem should accept the following props: url, title, icon. */}
           {/* For the icons, you can download 1-2 social media icons for testing and put it in the /public/socialmedia/ folder. */}
+          {socialMediaLinks.map((social) => (
+            <SocialMediaItem
+              key={uuid}
+              url={social.url}
+              title={social.title}
+              icon={social.icon}
+            />
+          ))}
         </ul>
       </div>
     </footer>
