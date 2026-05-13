@@ -231,3 +231,9 @@ button {
   justify-content: space-between;
   min-height: 100vh;
 }
+
+.footerIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: var(--spacing-08);
+}

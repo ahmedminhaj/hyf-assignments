@@ -1,5 +1,9 @@
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from './Footer.module.css';
+import SocialMediaItem from "./SocialMediaItem";
+import { socialMediaLinks } from "../../data/constant";
+import { uuid } from "react-uuid";
 
 export const Footer = () => {
   const { pathname } = useLocation();
@@ -14,13 +18,15 @@ export const Footer = () => {
       {/* 🧑🏽‍🚀 Task - Week 2 */}
       {/* Create a new list for the Pages. */}
       {/* We need to use the <Link /> component here. */}
-      {/* <div className={styles.pages}>
+      <div>
         <h3>Pages</h3>
-        <ul>
-          <li> <Link/> </li>
-          ...
+        <ul className={styles.footerPageLinks}>
+          <li> <Link to={"/"}>Home</Link></li>
+          <li> <Link to={"/about_us"}>About us</Link></li>
+          <li> <Link to={"/destination"}>Destination</Link></li>
+          <li> <Link to={"/nasa_collaboration"}>Nasa collaboration</Link></li>
         </ul>
-      </div> */}
+      </div>
       {/* Docs for the Link: https://reactrouter.com/api/components/Link#link. */}
 
       {/* 🧑🏽‍🚀 Task - Week 1 */}
@@ -28,22 +34,18 @@ export const Footer = () => {
       <div className={styles.footerLinks}>
         <h3>Follow us</h3>
         <ul className={styles.footerList}>
-          <li>
-            <a href="https://facebook.com">Facebook</a>
-          </li>
-          <li>
-            <a href="https://instagram.com">Instagram</a>
-          </li>
-          <li>
-            <a href="https://tiktok.com">Tiktok</a>
-          </li>
-          <li>
-            <a href="https://google.com">On the streets at night</a>
-          </li>
           {/* 🧑🏽‍🚀 Task - Week 2 */}
           {/* Create a <SocialMediaItem /> component and replace all of the list items! */}
           {/* SocialMediaItem should accept the following props: url, title, icon. */}
           {/* For the icons, you can download 1-2 social media icons for testing and put it in the /public/socialmedia/ folder. */}
+          {socialMediaLinks.map((social) => (
+            <SocialMediaItem
+              key={uuid}
+              url={social.url}
+              title={social.title}
+              icon={social.icon}
+            />
+          ))}
         </ul>
       </div>
     </footer>
