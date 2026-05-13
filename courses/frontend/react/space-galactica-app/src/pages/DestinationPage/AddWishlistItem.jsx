@@ -16,7 +16,7 @@ export const AddWishlistItem = ({
     // - call the onAddWishlistItem function;
     // - clear the <input/> field .
     e.preventDefault();
-    onAddWishlistItem(name, thumbnail);
+    onAddWishlistItem({name, thumbnail});
     setName("");
   }
 

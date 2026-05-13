@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./DestinationPage.module.css";
 import PlanetCard from "./PlanetCard";
+import { useWishlist } from "../../contexts/WishlistContext.jsx";
 import { AddWishlistItem } from "./AddWishlistItem";
 import { planets } from "../../../data/constant";
 import { uuid } from "react-uuid";
@@ -10,37 +11,15 @@ import { uuid } from "react-uuid";
 
 
 export const Destinations = () => {
-  const [planetsWishlist, setPlanetsWishlist] = useState([]);
+  const { planetsWishlist, addPlanetToWishlist, removePlanetFromWishlist, isPlanetInWishlist } = useWishlist();
 
-  const isPlanetInWishlist = (planetName) => {
-    // 🧑🏽‍🚀 Task - Week 2
-    // This should be a simple function to check if a given planet is selected.
-    // You will need to work with the array of planets wishlist.
-    return planetsWishlist.some((planet) => planet.name === planetName);
-  };
-
+  
   const togglePlanetSelection = (name, thumbnail) => {
+    const isSelected = isPlanetInWishlist(name);
     // 🧑🏽‍🚀 Task - Week 2
     // When a planet is selected or deselected (toggled), the state of the wishlist planets should be updated accordingly by 
     // calling the addPlanetToWishlist or removePlanetFromWishlist function. You will need a condition here.
-    isPlanetInWishlist(name) ? removePlanetFromWishlist(name) : addPlanetToWishlist(name, thumbnail);
-  };
-
-  const addPlanetToWishlist = (name, thumbnail) => {
-    // 🧑🏽‍🚀 Task - Week 2
-    // Add the planet to the planets wishlist state.
-    setPlanetsWishlist((prev) => [
-      ...prev,
-      { name, thumbnail }
-    ]);
-  };
-  
-  const removePlanetFromWishlist = (name) => {
-    // 🧑🏽‍🚀 Task - Week 2
-    // Remove the planet from the planets wishlist state.
-    setPlanetsWishlist((prev) =>
-      prev.filter((planet) => planet.name !== name)
-    );
+    isSelected ? removePlanetFromWishlist(name) : addPlanetToWishlist({name, thumbnail});
   };
 
   const planetsInWishlistMsg = planetsWishlist.length > 0 ? `You have ${planetsWishlist.length} planets in your wishlist` : "No planets in your wishlist :(";
